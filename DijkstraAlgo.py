@@ -4,7 +4,7 @@ from turtle import distance
 
 INF = 99999999
 
-class Graph: 
+class Map: 
     def __init__(self, Graph, vertices):
         self.V = vertices
         self.G = Graph

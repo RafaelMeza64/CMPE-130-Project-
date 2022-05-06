@@ -1,1 +1,1 @@
-from DijkstraAlgo import Graph
+from DijkstraAlgo import Map
