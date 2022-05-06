@@ -1,5 +1,8 @@
 from concurrent.futures import process
 import heapq
+from turtle import distance
+
+INF = 99999999
 
 class Graph: 
     def __init__(self, Graph, vertices):
@@ -27,4 +30,37 @@ class Graph:
                         distance[i] = temporaryDistance
                         previous[i] = u
                         heapq.heappush(Q, [distance[i], i])
-        return distance
+        return distance, previous
+
+    #this function will print out the shortest path from the source node to the target node like: source -> intermediate nodes ... -> target
+    def printShortestPath(self, source, target): 
+        pathStack = []
+
+        distanceList = []
+        pathList = []
+
+        distanceList, pathList = self.findShortestPath(source)
+
+        stopFlag = True
+        currentIndex = target
+
+        while stopFlag != False: 
+            pathStack.append(pathList[currentIndex])
+            currentIndex = pathList[currentIndex]
+            if currentIndex == 0: 
+                stopFlag = False
+        
+
+        while pathStack: 
+            print(pathStack.pop(), "-> ", end='')
+        
+        print(target)
+
+    def getTotalCost(self, source, target): 
+        distanceList = []
+        pathList = []
+
+        distanceList, pathList = self.findShortestPath(source)
+
+        return distanceList[target]
+        
