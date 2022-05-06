@@ -6,7 +6,8 @@ class Graph:
         self.V = vertices
         self.G = Graph
 
-    def findShortestPath(self, source): 
+    def findShortestPath(self, source):
+        INF = 1e7
         distance = [INF for i in range(self.V)]
         previous = [None for i in range(self.V)]
         processed = [False for i in range(self.V)]
