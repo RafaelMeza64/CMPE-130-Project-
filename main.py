@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, send_from_directory, render_template, request, session, flash, Markup
-from DijkstraAlgo import Graph
+from DijkstraAlgo import Map
 
 app = Flask(__name__)
 
