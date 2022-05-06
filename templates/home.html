@@ -3,5 +3,10 @@
 {%block title%} Test {% endblock%}
 
 {% block content %}
-<span>Test</span>
+<span style="font-size: 14pt;">
+    {% for i in range(vertices) %}
+        {{print[i]}}
+        <br/>
+    {% endfor %}
+</span>
 {% endblock %}
