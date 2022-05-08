@@ -36,6 +36,11 @@ def txt_to_csv(fileName, fortemp):
         newFile.close()
 
     count = 0
+    for i in range(len(matrix[0])):
+        if i == 0:
+            continue
+        else:
+            print("(" + str(i) + ") " + str(matrix[0][i]))
     
     for i in reversed(range(len(matrix[0]))):
         # print(matrix[i][j])
@@ -81,8 +86,8 @@ def txt_to_csv(fileName, fortemp):
 
     print(temp)
 
-    for i in range(len(matrix)):
-        print("Row Count #" + str(i+1) + ": " + str(len(matrix[i])))
+    # for i in range(len(matrix)):
+    #     print("Row Count #" + str(i+1) + ": " + str(len(matrix[i])))
 
     # print(matrix[22])
 
