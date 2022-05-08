@@ -8,9 +8,88 @@ walmart_map = [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 
 walmart_neighborhood = Map(walmart_map, len(walmart_map))
 
-# print(walmart_neighborhood.printShortestPath(1, 15))
+choices = """
+Walmart Neighborhood Market
+(1) Entrance/Exit
+(2) Fruits
+(3) Vegetables
+(4) Canned Food
+(5) Sugar/Salt/Flour
+(6) Coffee/Tea
+(7) Seasonings
+(8) Grains
+(9) Liquor
+(10) Lunch Meat
+(11) Cheese
+(12) Pastry
+(13) Cake
+(14) Cookies
+(15) Bagels
+(16) Dairy
+(17) Fresh Meat
+(18) Card & Party
+(19) Paper & Cleaning
+(20) Baby
+(21) Pharmacy
+(22) Health/Beauty
+(23) Restroom
+(24) Customer Service
+(25) Checkout
+(26) Pet Care
+(27) 1
+(28) 2
+(29) 3
+(30) 4
+(31) 5
+(32) 6
+(33) 7
+(34) 8
+(35) 9
+(36) 10
+(37) 11
+(38) 12
+(39) 13
+(40) 14
+(41) 15
+(42) 16
+(43) 17
+(44) 18
+(45) 19
+(46) 20
+(47) 21
+(48) 22
+(49) 23
+(50) 24
+(51) 25
+(52) 26
+(53) 27
+(54) 28
+(55) 29
+(56) 30
+(57) 31
+(58) 32
+(59) 33
+(60) 34
+(61) 35
+(62) 36
+(63) 37
+(64) 38
+(65) 39
+(66) 40
+(67) 41
+(68) 42
+"""
 
-print(walmart_neighborhood.findShortestPath(26))
+print(choices)
+input_choice = input("Where do you want to go?\nInput: ")
+
+while((int(input_choice) > len(walmart_map)) or (int(input_choice) < 0)):
+    print("Input is invalid. Please pick a choice from 0 to " + str(len(walmart_map)-1))
+    input_choice = input("Input: ")
+
+print(walmart_neighborhood.findShortestPath(int(input_choice)-1))
+print("Shortest Path: " + str(walmart_neighborhood.printShortestPath(0, int(input_choice)-1)))
+
 
 # @app.route("/")
 # @app.route("/home")
