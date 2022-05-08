@@ -12,7 +12,7 @@ def changeFormat(fileName, formatType, fortemp = ""):
     if (formatType == '-c'):
         txt_to_csv(fileName, fortemp)
     else:
-        raise Exception("Your selection was not \"-c\", \"-j\", or \"-x\" for .xml.\nProgram Terminated!")
+        raise Exception("Selection is not \"-c\"\nProgram Terminated!")
 
 def txt_to_csv(fileName, fortemp):
     print("...Converting .txt to .csv...")
@@ -72,7 +72,7 @@ def txt_to_csv(fileName, fortemp):
             matrix[i][j] = float(matrix[i][j])
         
 
-    # print("Matrix:", matrix)
+    print("Matrix:", matrix)
     temp = ""
     temp += "["
     for i in range(len(matrix)-1):
@@ -87,8 +87,8 @@ def txt_to_csv(fileName, fortemp):
     # print(matrix[22])
 
 
-    tempFileName = fileName.split(".")
-    tempFilecsv = tempFileName[0] + ".csv"
+    # tempFileName = fileName.split(".")
+    # tempFilecsv = tempFileName[0] + ".csv"
     # print(tempFilecsv)
     # print("Row Count: " + str(numRows(tempFilecsv)))
     print("Converted to .csv")
@@ -132,5 +132,7 @@ while(True):
 choice = "-c"
 
 changeFormat(fileName, choice)
+
+
 
 print("Program Terminated!")
