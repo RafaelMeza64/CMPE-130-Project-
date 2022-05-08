@@ -90,12 +90,9 @@ while((int(input_choice) > len(walmart_map)) or (int(input_choice) < 0)):
 print(walmart_neighborhood.findShortestPath(int(input_choice)-1))
 print("Shortest Path: " + str(walmart_neighborhood.printShortestPath(0, int(input_choice)-1)))
 
-<<<<<<< HEAD
-=======
 print(walmart_neighborhood.findShortestPath(26))
 print("The path to node 9.0 is listed below: ")
 walmart_neighborhood.printShortestPath(26, 9)
->>>>>>> f8a418ac6b84b88e876894329d668684dde8ac69
 
 # @app.route("/")
 # @app.route("/home")
