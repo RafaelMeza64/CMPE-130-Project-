@@ -11,6 +11,8 @@ walmart_neighborhood = Map(walmart_map, len(walmart_map))
 # print(walmart_neighborhood.printShortestPath(1, 15))
 
 print(walmart_neighborhood.findShortestPath(26))
+print("The path to node 9.0 is listed below: ")
+walmart_neighborhood.printShortestPath(26, 9)
 
 # @app.route("/")
 # @app.route("/home")
