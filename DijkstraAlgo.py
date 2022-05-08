@@ -16,9 +16,10 @@ class Map:
         processed = [False for i in range(self.V)]
 
         distance[source] = 0
+        previous[source] = source
         Q = []
 
-        heapq.heappush(Q, [distance[source], 0])
+        heapq.heappush(Q, [distance[source], source])
 
         
         while Q: 
@@ -48,7 +49,7 @@ class Map:
         while stopFlag != False: 
             pathStack.append(pathList[currentIndex])
             currentIndex = pathList[currentIndex]
-            if currentIndex == 0: 
+            if currentIndex == source: 
                 stopFlag = False
         
 
