@@ -1,8 +1,4 @@
-# Group SUS
-# Group Members: Ryan Nguyen, Rafael Meza, Jose Hernandez, Kate Dinh
-# CMPE 131-04
-# Homework 2 - Data Format
-# March 13, 2022
+# File to convert .txt tab delimiter file to 2-D matrix format
 
 import csv
 from tkinter import N 
