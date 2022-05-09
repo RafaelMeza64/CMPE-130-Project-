@@ -82,6 +82,9 @@ walmart_locations = """
 """
 
 @app.route("/")
+def default():
+    return redirect(url_for("home"))
+    
 @app.route("/home", methods=["GET", "POST"])
 def home():
     result = ""
