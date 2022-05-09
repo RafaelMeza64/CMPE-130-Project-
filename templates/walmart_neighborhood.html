@@ -14,14 +14,14 @@
         <img style="width: 100%;" src="static\pictures\Walmart Neighborhood Map.png"/>
     </div>
     <hr/>
-    <h2>Results</h2>
+    <center><h2>Results</h2></center>
     <center>
         <table style="border: 2px solid black">
             <tr>
                 <th style="width: 30%;">
                     <span>Configuration</span>
                 </th>
-                <th style="width: 40%;">
+                <th style="width: 25%;">
                     <span>Choices</span>
                 </th>
                 <th>
@@ -38,8 +38,14 @@
                         <button type="submit" name="Submit">Find Shortest Path</button>
                     </form>
                 </td>
-                <td style="white-space: pre">
-                    {{list}}
+                <td>
+                    {% for i in range(vertices) %}
+                    <b>({{i+1}})</b> {{header[i]}}
+                    {% if i == vertices-1 %}
+                    {% else %}
+                    <br/>
+                    {% endif %}
+                    {% endfor %}
                 </td>
                 <td>
                     <b>Path:</b>
@@ -115,8 +121,7 @@
                 </td>
             </tr>
         </table>
-    <br/>
-    Total Number of Vertices: {{vertices}}
+    <b>Total Number of Vertices:</b> {{vertices}}
     <br/>
 </span>
 {% endblock %}
