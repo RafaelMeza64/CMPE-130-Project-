@@ -131,7 +131,12 @@ while(True):
         fileName = fileName + ".txt"
         break
     elif (fileNameChoice == 'N' or fileNameChoice == 'n'):
-        fileName = "Walmart Neighborhood Market Matrix.txt"
+        # choice = input("Choose file:\n(1) Walmart Neighborhood Market Matrix.txt\nInput: ")
+        choice = "1"
+        if(choice == "1"):
+            fileName = "Walmart Neighborhood Market Matrix.txt"
+        else:
+            raise("Choice does not exist. Program Terminated.")
         break
     else:
         fileNameChoice = input("Invalid choice. Please pick Y/N: ")
