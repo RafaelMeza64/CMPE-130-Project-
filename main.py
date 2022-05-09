@@ -91,6 +91,7 @@ def home():
     vertices = walmart_neighborhood.V
     source_name = walmart_header[0]
     all_paths = walmart_neighborhood.findShortestPath(0)
+    total_distance = None
 
     if request.method == "POST":
         input_choice_from = int(request.form["input-from"])
@@ -107,13 +108,15 @@ def home():
                 result =  Markup("<span style=\"color:red;\">You are going to where you already are!</span>")
                 source_name = str(walmart_header[int(input_choice_from)])
                 all_paths = walmart_neighborhood.findShortestPath(int(input_choice_from))
-                return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=input_choice_from, input_choice_to=input_choice_to, vertices=vertices, list=walmart_locations, path=result, header=walmart_header, source_name=source_name)
+                return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=input_choice_from, input_choice_to=input_choice_to, vertices=vertices, list=walmart_locations, path=result, header=walmart_header, source_name=source_name, total_distance=total_distance)
             
+            total_distance = float(walmart_neighborhood.getTotalCost(int(input_choice_from), int(input_choice_to)))
+            print("THIS:", total_distance)
             result = walmart_neighborhood.printShortestPath(int(input_choice_from)-1, int(input_choice_to)-1)
             source_name = str(walmart_header[int(input_choice_from)])
             all_paths = walmart_neighborhood.findShortestPath(int(input_choice_from))
 
-        return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=input_choice_from, input_choice_to=input_choice_to, vertices=vertices, list=walmart_locations, path=result, header=walmart_header, source_name=source_name)
+        return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=input_choice_from, input_choice_to=input_choice_to, vertices=vertices, list=walmart_locations, path=result, header=walmart_header, source_name=source_name, total_distance=total_distance)
 
     else:
         return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=0, vertices=vertices, list=walmart_locations, path=result, header=walmart_header)
