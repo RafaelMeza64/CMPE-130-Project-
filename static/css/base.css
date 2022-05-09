@@ -40,3 +40,32 @@ body {
     min-height: 100px;
     overflow: hidden;
 }
+
+table {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+table tr th {
+    text-align: center;
+    font-weight: bold;
+}
+
+table tr th, table tr td {
+    border: 1px solid black;
+    /* white-space: break-spaces; */
+}
+
+table tr td {
+    vertical-align: top;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+hr {
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
+    border-bottom: 2px solid black !important;
+}
