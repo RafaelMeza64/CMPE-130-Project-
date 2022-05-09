@@ -84,7 +84,7 @@ walmart_locations = """
 @app.route("/")
 def default():
     return redirect(url_for("home"))
-    
+
 @app.route("/home", methods=["GET", "POST"])
 def home():
     result = ""
@@ -108,8 +108,10 @@ def home():
                 source_name = str(walmart_header[int(input_choice_from)])
                 all_paths = walmart_neighborhood.findShortestPath(int(input_choice_from))
                 return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=input_choice_from, input_choice_to=input_choice_to, vertices=vertices, list=walmart_locations, path=result, header=walmart_header, source_name=source_name)
-
+            
             result = walmart_neighborhood.printShortestPath(int(input_choice_from)-1, int(input_choice_to)-1)
+            source_name = str(walmart_header[int(input_choice_from)])
+            all_paths = walmart_neighborhood.findShortestPath(int(input_choice_from))
 
         return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=input_choice_from, input_choice_to=input_choice_to, vertices=vertices, list=walmart_locations, path=result, header=walmart_header, source_name=source_name)
 
