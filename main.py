@@ -106,15 +106,15 @@ def home():
         else:
             if int(input_choice_from) == int(input_choice_to):
                 result =  Markup("<span style=\"color:red;\">You are going to where you already are!</span>")
-                source_name = str(walmart_header[int(input_choice_from)])
-                all_paths = walmart_neighborhood.findShortestPath(int(input_choice_from))
+                source_name = str(walmart_header[int(input_choice_from)-1])
+                all_paths = walmart_neighborhood.findShortestPath(int(input_choice_from)-1)
                 return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=input_choice_from, input_choice_to=input_choice_to, vertices=vertices, list=walmart_locations, path=result, header=walmart_header, source_name=source_name, total_distance=total_distance)
             
-            total_distance = float(walmart_neighborhood.getTotalCost(int(input_choice_from), int(input_choice_to)))
+            total_distance = float(walmart_neighborhood.getTotalCost(int(input_choice_from)-1, int(input_choice_to)-1))
             print("THIS:", total_distance)
             result = walmart_neighborhood.printShortestPath(int(input_choice_from)-1, int(input_choice_to)-1)
-            source_name = str(walmart_header[int(input_choice_from)])
-            all_paths = walmart_neighborhood.findShortestPath(int(input_choice_from))
+            source_name = str(walmart_header[int(input_choice_from)-1])
+            all_paths = walmart_neighborhood.findShortestPath(int(input_choice_from)-1)
 
         return render_template("walmart_neighborhood.html", all_paths=all_paths, input_choice_from=input_choice_from, input_choice_to=input_choice_to, vertices=vertices, list=walmart_locations, path=result, header=walmart_header, source_name=source_name, total_distance=total_distance)
 
