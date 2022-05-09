@@ -15,7 +15,7 @@ def changeFormat(fileName, formatType, fortemp = ""):
         raise Exception("Selection is not \"-c\"\nProgram Terminated!")
 
 def txt_to_csv(fileName, fortemp):
-    print("...Converting .txt to .csv...")
+    print("...Converting .txt to .csv...\n")
     matrix = []
     with open(fileName, newline='') as file:
         fileReader = csv.reader(file, delimiter='\t')
@@ -36,11 +36,11 @@ def txt_to_csv(fileName, fortemp):
         newFile.close()
 
     count = 0
-    for i in range(len(matrix[0])):
-        if i == 0:
-            continue
-        else:
-            print("(" + str(i) + ") " + str(matrix[0][i]))
+    # for i in range(len(matrix[0])):
+    #     if i == 0:
+    #         continue
+    #     else:
+    #         print("(" + str(i) + ") " + str(matrix[0][i]))
     
     for i in reversed(range(len(matrix[0]))):
         # print(matrix[i][j])
@@ -51,9 +51,9 @@ def txt_to_csv(fileName, fortemp):
         else:
             break
     
-    ## print(matrix[1])
-    ## print(len(matrix[1]))
-    ## print("Count:", count)
+    # print(matrix[1])
+    # print(len(matrix[1]))
+    # print("Count:", count)
 
     for i in range(1, len(matrix)):
         for j in range(len(matrix[i])-1, (len(matrix[i])-count)-1, -1):
@@ -69,6 +69,8 @@ def txt_to_csv(fileName, fortemp):
 
     for i in range(len(matrix)):
         del matrix[i][0]
+    
+    print("Header: " + str(matrix[0]) + "\n")
 
     del matrix[0]
     
@@ -84,7 +86,7 @@ def txt_to_csv(fileName, fortemp):
         temp += (str(matrix[i]) + ", ")
     temp += (str(matrix[len(matrix)-1]) + "]")
 
-    print(temp)
+    print(temp + "\n")
 
     # for i in range(len(matrix)):
     #     print("Row Count #" + str(i+1) + ": " + str(len(matrix[i])))
@@ -96,7 +98,7 @@ def txt_to_csv(fileName, fortemp):
     # tempFilecsv = tempFileName[0] + ".csv"
     # print(tempFilecsv)
     # print("Row Count: " + str(numRows(tempFilecsv)))
-    print("Converted to .csv")
+    print("Converted to .csv\n")
 
 def numRows(fileName) -> int:
     rowCount = 0
@@ -138,6 +140,4 @@ choice = "-c"
 
 changeFormat(fileName, choice)
 
-
-
-print("Program Terminated!")
+print("Program Terminated!\n")
