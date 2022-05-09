@@ -11,7 +11,8 @@
     <hr/>
     <h2>Digitalized Map</h2>
     <div style="text-align: center;">
-        <img style="width: 100%;" src="static\pictures\Walmart Neighborhood Map.png"/>
+        <img style="width: 100%; margin-bottom: 1em;" src="static\pictures\Walmart Neighborhood Map.png"/>
+        <b>Total Number of Vertices:</b> {{vertices}}
     </div>
     <hr/>
     <center><h2>Results</h2></center>
@@ -39,8 +40,21 @@
                     </form>
                 </td>
                 <td>
+                    <b><u>Legend</u></b>
+                    <br/>
+                    <span style="background-color: darksalmon; color: darksalmon;">---</span> = Source
+                    <br/>
+                    <span style="background-color: mediumseagreen; color: mediumseagreen;">---</span> = Destination
+                    <hr/>
                     {% for i in range(vertices) %}
+                    {% if i == input_choice_from-1 %}
+                    <span style="background-color: darksalmon;"><b>({{i+1}})</b> {{header[i]}}</span>
+                    {% elif i == input_choice_to-1 %}
+                    <span style="background-color: mediumseagreen;"><b>({{i+1}})</b> {{header[i]}}</span>
+                    {% else %}
                     <b>({{i+1}})</b> {{header[i]}}
+                    {% endif %}
+
                     {% if i == vertices-1 %}
                     {% else %}
                     <br/>
@@ -51,8 +65,8 @@
                     <b>Path:</b>
                     <br/>
                     {{path}}
-                    <!-- <hr/> -->
-                    <!-- <b>Total Distance:</b> {{total_distance}} -->
+                    <hr/>
+                    <b>Total Distance:</b> {{total_distance}}
                 </td>
             </tr>
         </table>
@@ -79,7 +93,7 @@
             <tr>
                 <td>
                 {% for i in range(vertices) %}
-                    {% if i == input_choice_from %}
+                    {% if i == input_choice_from-1 %}
                     <span style="background-color: yellow;"><b>({{i+1}})</b> {{header[i]}}</span>
                     {% else %}
                     <b>({{i+1}})</b> {{header[i]}}
@@ -93,7 +107,7 @@
                 </td>
                 <td style="text-align: center;">
                     {% for i in range(vertices) %}
-                        {% if i == input_choice_from %}
+                        {% if i == input_choice_from-1 %}
                         <span style="background-color: yellow;">{{all_paths[0][i]}}</span>
                         {% else %}
                         {{all_paths[0][i]}}
@@ -107,10 +121,10 @@
                 </td>
                 <td style="text-align: center;">
                     {% for i in range(vertices) %}
-                    {% if i == input_choice_from %}
-                    <span style="background-color: yellow;">{{all_paths[1][i]}}</span>
+                    {% if i == input_choice_from-1 %}
+                    <span style="background-color: yellow;">-</span>
                     {% else %}
-                    {{all_paths[1][i]}}
+                    {{all_paths[1][i]+1}}
                     {% endif %}
 
                     {% if i == vertices-1 %}
@@ -121,7 +135,5 @@
                 </td>
             </tr>
         </table>
-    <b>Total Number of Vertices:</b> {{vertices}}
-    <br/>
 </span>
 {% endblock %}
