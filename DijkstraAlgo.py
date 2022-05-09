@@ -4,11 +4,15 @@ from turtle import distance
 
 INF = 99999999
 
-class Map: 
-    def __init__(self, Graph, vertices):
+class Map:
+
+    # class constructor
+    def __init__(self, Graph, vertices, header):
         self.V = vertices
         self.G = Graph
+        self.header = header
 
+    # find the shortest from a node to all nodes
     def findShortestPath(self, source):
         INF = 1e7
         distance = [INF for i in range(self.V)]
@@ -32,10 +36,13 @@ class Map:
                         distance[i] = temporaryDistance
                         previous[i] = u
                         heapq.heappush(Q, [distance[i], i])
+
         return distance, previous
 
-    #this function will print out the shortest path from the source node to the target node like: source -> intermediate nodes ... -> target
-    def printShortestPath(self, source, target): 
+    # this function will print out the shortest path from the source node to the target node like:
+    # source -> intermediate nodes ... -> target
+    def printShortestPath(self, source, target):
+        pathString = ""
         pathStack = []
 
         distanceList = []
@@ -52,11 +59,16 @@ class Map:
             if currentIndex == source: 
                 stopFlag = False
         
-
-        while pathStack: 
-            print(pathStack.pop(), "-> ", end='')
-        
-        print(target)
+        while pathStack:
+            pathString += self.header[int(pathStack[len(pathStack)-1])]
+            pathStack.pop(len(pathStack)-1)
+            # print(len(pathStack))
+            if len(pathStack) <= 0:
+                break
+            else:
+                pathString += " \u2192 "
+        pathString += " \u2192 " + self.header[int(target)]
+        return pathString
 
     def getTotalCost(self, source, target): 
         distanceList = []
