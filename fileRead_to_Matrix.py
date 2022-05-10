@@ -79,7 +79,7 @@ def txt_to_csv(fileName, fortemp):
             matrix[i][j] = float(matrix[i][j])
         
 
-    print("Matrix:", matrix)
+    print("Matrix: ")
     temp = ""
     temp += "["
     for i in range(len(matrix)-1):
@@ -131,10 +131,11 @@ while(True):
         fileName = fileName + ".txt"
         break
     elif (fileNameChoice == 'N' or fileNameChoice == 'n'):
-        # choice = input("Choose file:\n(1) Walmart Neighborhood Market Matrix.txt\nInput: ")
-        choice = "1"
+        choice = input("Choose file:\n(1) Walmart Neighborhood Market Matrix.txt\n(2) Simple Store Map.txt\nInput: ")
         if(choice == "1"):
             fileName = "Walmart Neighborhood Market Matrix.txt"
+        elif(choice == "2"):
+            fileName = "Simple Store Map.txt"
         else:
             raise("Choice does not exist. Program Terminated.")
         break
