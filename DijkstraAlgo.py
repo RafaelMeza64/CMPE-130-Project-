@@ -1,6 +1,5 @@
-from concurrent.futures import process
 import heapq
-from turtle import distance
+import timeit
 
 INF = 99999999
 
@@ -36,7 +35,6 @@ class Map:
                         distance[i] = temporaryDistance
                         previous[i] = u
                         heapq.heappush(Q, [distance[i], i])
-
         return distance, previous
 
     # this function will print out the shortest path from the source node to the target node like:
@@ -48,7 +46,13 @@ class Map:
         distanceList = []
         pathList = []
 
+        time1 = timeit.default_timer()
+
         distanceList, pathList = self.findShortestPath(source)
+
+        time2 = timeit.default_timer()
+        total_time = time2-time1
+        print("Total Time: " + str(total_time) + " seconds")
 
         stopFlag = True
         currentIndex = target
