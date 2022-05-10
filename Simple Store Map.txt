@@ -1,0 +1,53 @@
+	Entrance	Check Out	Canned Soup	Cookies	Jelly	Beans	Nuts & Seeds	Grains	Vegetables	Fruits	Breads	Seafood	Deli	Meat	Dairy	Frozen Foods	1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18	19	20	21	22	23	24	25	26	27	28	29	30	31	32	33	34	35	36
+Entrance																	2																																			
+Check Out																		7	8																																	
+Canned Soups																					8												4																			
+Cookies																						8												4																		
+Jelly																							8												4																	
+Beans																								8												4																
+Nuts & Seeds																									8												4															
+Grains																										8												4														
+Vegetables										4																	4		5																							
+Fruits									4																						5									4												
+Breads																																										4	2									
+Seafood																																													2	2						
+Deli														2																						4										2						
+Meat													2																						4												2					
+Dairy																																2																2				
+Frozen Foods																														2																					2	
+1	2																	5										2																								
+2		7															5										2																									
+3		8																		2																																
+4																			2		2									6																						4
+5			8																	2		2																														
+6				8																	2		2																													
+7					8																	2		2																												
+8						8																	2		2																											
+9							8																	2		2																										
+10								8																	2		3																									
+11									4									2								3		5																								
+12																	2										5		4																							
+13									5																			4			4																					
+14																2																6																				
+15										5																			4												4											
+16															2															6			2																	4		
+17			4																													2		2																		
+18				4																													2		2												4					
+19					4									4																				2		2																
+20						4							4																						2		2															
+21							4																													2		2								4						
+22								4																													2		2													
+23																																						2		1		2										
+24										4																													1		5											
+25																															4									5			2									
+26											4																												2						2							
+27											2																														2			2								
+28																																											2		6							
+29												2																														2		6								
+30												2	2																								4															
+31														2																				4														4				
+32															2																																4		4			
+33																																																4		4		
+34																																4																	4		6	
+35																2																																		6		6
+36																				4																															6	

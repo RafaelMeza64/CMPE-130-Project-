@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %} Simple Store Map {% endblock %}
+
+{% block content %}
+<span style="font-size: 14pt;">
+    <h2>Real Map</h2>
+    <div style="text-align: center;">
+        <img style="width: 100%;" src="static\pictures\Real Simple Store Map.png"/>
+    </div>
+    <hr/>
+    <h2>Digitalized Map</h2>
+    <div style="text-align: center;">
+        <img style="width: 100%; margin-bottom: 1em;" src="static\pictures\Digitalized Simple Store Map.png"/>
+        <b>Total Number of Vertices:</b> {{vertices}}
+    </div>
+    <hr/>
+    <center><h2>Results</h2></center>
+    <center>
+        <table style="border: 2px solid black">
+            <tr>
+                <th style="width: 30%;">
+                    <span>Configuration</span>
+                </th>
+                <th style="width: 25%;">
+                    <span>Choices</span>
+                </th>
+                <th>
+                    <span>Shortest Path</span>
+                </th>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <form action="#" method="post">
+                        <b>From:</b> <input type="number" name="input-from" placeholder="Source" value="{{input_choice_from if input_choice_from}}"/>
+                        <br/>
+                        <b>To:</b> <input type="number" name="input-to" placeholder="Destination" value="{{input_choice_to if input_choice_to}}"/>
+                        <br/>
+                        <button type="submit" name="Submit">Find Shortest Path</button>
+                    </form>
+                </td>
+                <td>
+                    <b><u>Legend</u></b>
+                    <br/>
+                    <span style="background-color: darksalmon; color: darksalmon;">---</span> = Source
+                    <br/>
+                    <span style="background-color: mediumseagreen; color: mediumseagreen;">---</span> = Destination
+                    <hr/>
+                    {% for i in range(vertices) %}
+                    {% if i == input_choice_from-1 %}
+                    <span style="background-color: darksalmon;"><b>({{i+1}})</b> {{header[i]}}</span>
+                    {% elif i == input_choice_to-1 %}
+                    <span style="background-color: mediumseagreen;"><b>({{i+1}})</b> {{header[i]}}</span>
+                    {% else %}
+                    <b>({{i+1}})</b> {{header[i]}}
+                    {% endif %}
+
+                    {% if i == vertices-1 %}
+                    {% else %}
+                    <br/>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    <b>Path:</b>
+                    <br/>
+                    {{path}}
+                    <hr/>
+                    <b>Total Distance:</b> {{total_distance}}
+                </td>
+            </tr>
+        </table>
+    </center>
+
+    <center>
+        <table style="border: 2px solid black">
+            <tr>
+                <th colspan="3">
+                    <span>Shortest Path from <u><i>{{source_name}}</i> to <i>All Locations</i></u></span>
+                </th>
+            </tr>
+            <tr>
+                <td style="text-align: center;">
+                    <b>Vertices</b>
+                </td>
+                <td style="width: 20%; text-align: center;">
+                    <b>Distances</b>
+                </td>
+                <td style="width: 20%; text-align: center;">
+                    <b>Last Vertex</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                {% for i in range(vertices) %}
+                    {% if i == input_choice_from-1 %}
+                    <span style="background-color: yellow;"><b>({{i+1}})</b> {{header[i]}}</span>
+                    {% else %}
+                    <b>({{i+1}})</b> {{header[i]}}
+                    {% endif %}
+
+                    {% if i == vertices-1 %}
+                    {% else %}
+                    <br/>
+                    {% endif %}
+                {% endfor %}
+                </td>
+                <td style="text-align: center;">
+                    {% for i in range(vertices) %}
+                        {% if i == input_choice_from-1 %}
+                        <span style="background-color: yellow;">{{all_paths[0][i]}}</span>
+                        {% else %}
+                        {{all_paths[0][i]}}
+                        {% endif %}
+
+                        {% if i == vertices-1 %}
+                        {% else %}
+                        <br/>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td style="text-align: center;">
+                    {% for i in range(vertices) %}
+                    {% if i == input_choice_from-1 %}
+                    <span style="background-color: yellow;">-</span>
+                    {% else %}
+                    {{all_paths[1][i]+1}}
+                    {% endif %}
+
+                    {% if i == vertices-1 %}
+                    {% else %}
+                    <br/>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        </table>
+</span>
+{% endblock %}
